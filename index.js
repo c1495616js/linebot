@@ -15,7 +15,9 @@ bot.on('message', function(event) {
     //ex: 台南天氣
     if(msg.indexOf('天氣') > -1){
         var city = msg.substring(0,2);
+        console.log(city);
         weather(city,(res)=>{
+            console.log(res);
             var reply = res.temperature;
             event.reply(reply).then(function(data) {
             // success 
