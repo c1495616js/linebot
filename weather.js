@@ -4,6 +4,7 @@ var cityUrl = 'https://works.ioa.tw/weather/api/all.json';
 var currentCityId;
 function weather(city, callback){
     axios.get(cityUrl).then((citys)=>{
+        console.log(citys);
         citys.map(function(e){
             if(e.name == city){
                 currentCityId = e.id;
