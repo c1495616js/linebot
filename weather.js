@@ -7,7 +7,7 @@ function weather(city, callback){
         citys.map(function(e){
             if(e.name == city){
                 currentCityId = e.id;
-                break;
+                return false;
             }
         });
         var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentCityId}.json`;
