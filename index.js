@@ -33,7 +33,7 @@ bot.on('message', function(event) {
 
 
             var reply = `${msg}: 
-            時間：${at}, 
+            時間：${res.at}, 
             概況：${res.desc},
             氣溫：${res.temperature}, 
             濕度：${res.humidity},
