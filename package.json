@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "heroku": "git add . && git commit -m 'commit' && git push heroku master https://git.heroku.com/line-bot-jerry.git"
+    "heroku": "git add . && git commit -m \"commit\" && git push heroku master https://git.heroku.com/line-bot-jerry.git"
   },
   "author": "",
   "license": "ISC",
