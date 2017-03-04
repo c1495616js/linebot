@@ -5,7 +5,7 @@ var currentCityId;
 function weather(city, callback){
     axios.get(cityUrl).then((citys)=>{
         console.log(citys);
-        for (var i = 0, len = citys.length; i < len; i++) {
+        for (var i = 0, len = citys.data.length; i < len; i++) {
              
              var e = arr[i];
              if(e.name == city){
