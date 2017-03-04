@@ -16,8 +16,10 @@ bot.on('message', function(event) {
     
     if(msg.indexOf('天氣') > -1){
         var city = msg.substring(0,2);
+        var district = msg.substring(2,5);
         console.log(city);
-        weather(city,(res)=>{
+        console.log(district);
+        weather(city,district,(res)=>{
 
             /* "img": "02@2x.png",
   "desc": "多雲",
@@ -37,7 +39,7 @@ bot.on('message', function(event) {
             概況：${res.desc},
             氣溫：${res.temperature}, 
             濕度：${res.humidity},
-            降雨機率：${res.rainfall},
+            降雨機率：${res.rainfall}
             `;
             event.reply(reply).then(function(data) {
             // success 
