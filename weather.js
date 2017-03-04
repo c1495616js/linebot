@@ -5,16 +5,32 @@ var currentCityId;
 function weather(city, callback){
     axios.get(cityUrl).then((citys)=>{
         console.log(citys);
-        citys.forEach(function(e){
-            if(e.name == city){
+        for (var i = 0, len = citys.length; i < len; i++) {
+             
+             var e = arr[i];
+             if(e.name == city){
                 currentCityId = e.id;
-                return false;
+                // return false;
             }
-        });
-        var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentCityId}.json`;
-        axios.get(weatherUrl).then((res)=>{
-            callback(res.data);
-        });
+            
+        };
+        if(currentCityId){
+            var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentCityId}.json`;
+            axios.get(weatherUrl).then((res)=>{
+                    callback(res.data);
+                });
+        }
+        
+        // citys.forEach(function(e){
+        //     if(e.name == city){
+        //         currentCityId = e.id;
+        //         return false;
+        //     }
+        // });
+        // var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentCityId}.json`;
+        // axios.get(weatherUrl).then((res)=>{
+        //     callback(res.data);
+        // });
     });
     
 
