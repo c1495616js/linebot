@@ -1,6 +1,6 @@
 var linebot = require('linebot');
 var express = require('express');
-
+var weather = require('./weather');
 var bot = linebot({
     channelId: '1504082432',
     channelSecret: '4e000a81508b9df6798824b7bf4007c7',
@@ -10,13 +10,22 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
-    event.reply(msg).then(function(data) {
-      // success 
-      console.log(msg);
-    }).catch(function(error) {
-      // error 
-      console.log('error');
-    });
+
+    //asking weather
+    //ex: 台南天氣
+    if(msg.indexOf('天氣') > -1){
+        var city = msg.substring(0,2);
+        weather(city,(res)=>{
+            var reply = res.temperature;
+            event.reply(reply).then(function(data) {
+            // success 
+            console.log(msg);
+            }).catch(function(error) {
+            // error 
+            console.log('error');
+            });
+        });
+    }  
   }
 });
 
