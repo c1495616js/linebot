@@ -23,4 +23,4 @@ function weather(city, callback){
 
 
 
-module.export = weather;
+module.exports = weather;
