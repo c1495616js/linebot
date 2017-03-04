@@ -16,7 +16,8 @@ bot.on('message', function(event) {
     
     if(msg.indexOf('天氣') > -1){
         var city = msg.substring(0,2);
-        var district = msg.substring(2,5);
+        var ind = msg.indexOf('天氣');
+        var district = msg.substring(2,ind);
         console.log(city);
         console.log(district);
         weather(city,district,(res)=>{
