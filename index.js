@@ -25,9 +25,17 @@ bot.on('message', function(event) {
             console.log(msg);
             }).catch(function(error) {
             // error 
-            console.log('error');
+            console.log('error',error);
             });
         });
+    }else{
+       event.reply('錯誤').then(function(data) {
+            // success 
+            console.log(msg);
+            }).catch(function(error) {
+            // error 
+            console.log('error',error);
+            }); 
     }  
   }
 });
