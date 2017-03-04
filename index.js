@@ -13,7 +13,7 @@ bot.on('message', function(event) {
 
     //asking weather
     //ex: 台南天氣
-    console.log(msg);
+    
     if(msg.indexOf('天氣') > -1){
         var city = msg.substring(0,2);
         console.log(city);
