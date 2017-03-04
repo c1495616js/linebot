@@ -18,8 +18,27 @@ bot.on('message', function(event) {
         var city = msg.substring(0,2);
         console.log(city);
         weather(city,(res)=>{
-            console.log(res);
-            var reply = res.temperature;
+
+            /* "img": "02@2x.png",
+  "desc": "多雲",
+  "temperature": "16",
+  "humidity": "89",
+  "rainfall": "0.0",
+  "sunrise": "06:13",
+  "sunset": "17:57",
+  "at": "2017-03-04 19:05:07",
+  "specials": [],
+  "histories": [
+    {*/
+
+
+            var reply = `${msg}: 
+            時間：${at}, 
+            概況：${res.desc},
+            氣溫：${res.temperature}, 
+            濕度：${res.humidity},
+            降雨機率：${res.rainfall},
+            `;
             event.reply(reply).then(function(data) {
             // success 
             console.log(msg);
