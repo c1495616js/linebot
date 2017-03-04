@@ -5,7 +5,7 @@ var currentCityId;
 function weather(city, callback){
     axios.get(cityUrl).then((citys)=>{
         console.log(citys);
-        citys.map(function(e){
+        citys.forEach(function(e){
             if(e.name == city){
                 currentCityId = e.id;
                 return false;
