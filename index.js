@@ -36,11 +36,11 @@ bot.on('message', function(event) {
 
 
             var reply = `${msg}: 
-            時間：${res.at}, 
+            資料更新時間：${res.at}, 
             概況：${res.desc},
-            氣溫：${res.temperature}, 
-            濕度：${res.humidity},
-            降雨機率：${res.rainfall}
+            氣溫：${res.temperature}度C, 
+            濕度：${res.humidity}%,
+            降雨量：${res.rainfall}mm
             `;
             event.reply(reply).then(function(data) {
             // success 
