@@ -1,6 +1,7 @@
 var linebot = require('linebot');
 var express = require('express');
 var weather = require('./weather');
+var loginCnt = require('./loginCnt');
 var bot = linebot({
     channelId: '1504082432',
     channelSecret: '4e000a81508b9df6798824b7bf4007c7',
@@ -10,6 +11,24 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
+
+    if(msg == 'check'){
+        var replyMsg = '';
+        loginCnt((res)=>{
+            for (var i = 0, len = res.length; i < len; i++){
+                var user = res[i];
+                replyMsg += `${user.password} : ${user.cnt}次,
+                `;
+            }
+            event.reply(replyMsg).then(function(data) {
+            // success 
+            console.log(msg);
+            }).catch(function(error) {
+            // error 
+            console.log('error',error);
+            }); 
+        })
+    }
 
     //asking weather
     //ex: 台南天氣
