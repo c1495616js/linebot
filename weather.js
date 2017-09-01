@@ -5,10 +5,8 @@ var currentCityId;
 var currentDistrictId;
 function weather(city, district, callback){
     axios.get(cityUrl).then((citys)=>{
-        
         var arr = citys.data;
-        for (var i = 0, len = arr.length; i < len; i++) {
-             
+        for (var i = 0, len = arr.length; i < len; i++) {             
              var e = arr[i];
              if(e.name == city){
                 currentCityId = e.id;
@@ -19,9 +17,7 @@ function weather(city, district, callback){
                         currentDistrictId = d.id;
                     }
                 }
-                // return false;
-            }
-            
+            }           
         };
         if(currentCityId && currentDistrictId){
             var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentDistrictId}.json`;
@@ -29,22 +25,7 @@ function weather(city, district, callback){
                     callback(res.data);
                 });
         }
-        
-        // citys.forEach(function(e){
-        //     if(e.name == city){
-        //         currentCityId = e.id;
-        //         return false;
-        //     }
-        // });
-        // var weatherUrl = `https://works.ioa.tw/weather/api/weathers/${currentCityId}.json`;
-        // axios.get(weatherUrl).then((res)=>{
-        //     callback(res.data);
-        // });
     });
-    
-
-
-    
 }
 
 
